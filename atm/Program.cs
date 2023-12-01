@@ -110,7 +110,43 @@ class Program
 
         void Balance(CardHolder cardHolder)
             {
-                Console.WriteLine($"your balance is {cardHolder.GetBalance()}")
-            }   
+                Console.WriteLine($"your balance is {cardHolder.GetBalance()}");
+            }
+
+        List<CardHolder> cardHolders = new List<CardHolder>();
+        cardHolders.Add(new CardHolder("John", "Smith", 1234,"49184618204818274710"));
+        cardHolders.Add(new CardHolder("Jane", "Doe", 4321, "49184618204818274711"));
+        cardHolders.Add(new CardHolder("Bob", "Smith", 1111, "49184618204818274712"));
+        cardHolders.Add(new CardHolder("Alice", "Doe", 2222, "49184618204818274713"));
+        cardHolders.Add(new CardHolder("Eve", "Smith", 3333, "49184618204818274714"));
+
+        Console.WriteLine("welcome");
+        Console.WriteLine("Please enter your card number");
+        string cardNum = "";
+        CardHolder currentUser;
+
+      while (true)
+        {
+            try
+            {
+                cardNum = Console.ReadLine();
+                currentUser = cardHolders.FirstOrDefault(a => a.GetCardNumber() == cardNum);
+
+                if (currentUser != null)
+                {
+                    break; 
+                }
+
+                Console.WriteLine("Incorrect card number. Please try again.");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input format. Please enter a valid card number.");
+            }
+        }
+
     }
-}
+        }
+
+    
+
