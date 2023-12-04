@@ -145,6 +145,43 @@ class Program
             }
         }
 
+       
+            Console.WriteLine("Please enter your pin");
+            int pin = int.Parse(Console.ReadLine());
+
+            if (pin == currentUser.GetPin())
+            {
+                Console.WriteLine("Correct pin");
+                ShowOptions();
+                int option = int.Parse(Console.ReadLine());
+                if (option == 1)
+                {
+                    CheckBalance(currentUser);
+                }
+                else if (option == 2)
+                {
+                    Withdraw(currentUser);
+                }
+                else if (option == 3)
+                {
+                    Deposit(currentUser);
+                }
+                else if (option == 4)
+                {
+                    Console.WriteLine("Thank you for using our ATM");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid option");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Incorrect pin");
+            }
+        
+
+
     }
         }
 
